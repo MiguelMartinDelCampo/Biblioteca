@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+html, body{
+    width: 100%;
+    height: 100%;
+  
+}
+input[type="number"] {
+    width: 100px;
+    height: 25px;
+    font-size: 15px;
+}
+
+.all{
+    padding-top: 30px;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 100%;
+}
+
+
+.codigo{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    size: 150%;
+}
+
+.codigo section{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.automaticos{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.seleccionables{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+#servicios{
+    width: 170px;
+    height: 20px;
+    font-size: 15px;
+
+} #grupo, #turno{
+    width: 150px;
+    height: 20px;
+    font-size: 15px;
+}
+#envio{
+    border: none;
+    background: #c0c5ce;
+    border-radius: 10px;
+    transition: .7s;
+    color: #2c3e50;
+    padding: 10px;
+    margin: 10px;
+}
+
+.codigo input{
+    margin-left: 10px;
+    border-width: 0 0 3px 0;
+    border-style: groove;
+    text-align: center;
+}
+
+.codigo button:hover, #envio:hover{
+    background: #65737e;
+    color: white;
+    border-radius: 10px;
+}
+
+.back{
+    text-decoration: none;
+    color: #586066;
+    padding: 9px;
+    background-color:#62737a60;
+    transition: .7s;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 10px;
+}
+.back:hover{
+    background: #65737e;
+    color: white;
+    border-radius: 10px;
+    
+} 
+.back{
+    font-size: 14px;
+  }

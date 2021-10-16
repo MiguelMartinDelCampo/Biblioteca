@@ -1,0 +1,60 @@
+header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+.log{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.log img{
+    padding-top: 20px;
+    width: 50%;
+    margin-top: -5px;
+}
+
+.log h4{
+    padding-top: 50px;
+    margin-top: 15px;
+    margin-left: -40px;
+}
+
+#admin{
+    width: 10%;
+    height: 30%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+        
+    margin-top: 10px;
+    margin-right: 20px;
+
+    text-decoration: none;
+    color: black;
+    background-color: white;
+
+    transition: .7s;
+
+}
+
+#admin:hover{
+    background: #2E9CE8;
+    color: white;
+    
+    border-radius: 10px;
+}
+
+.clock{
+    text-align: center;
+    margin-left: -200px;
+}
