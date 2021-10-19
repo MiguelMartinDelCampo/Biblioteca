@@ -10,6 +10,7 @@ html, body{
     height: 100%;
   
 }
+
 input[type="number"] {
     width: 100px;
     height: 25px;
@@ -72,7 +73,7 @@ input[type="number"] {
     height: 20px;
     font-size: 15px;
 }
-#envio{
+#btnEnvio{
     border: none;
     background: #c0c5ce;
     border-radius: 10px;
@@ -89,8 +90,8 @@ input[type="number"] {
     text-align: center;
 }
 
-.codigo button:hover, #envio:hover{
-    background: #65737e;
+.codigo button:hover, #btnEnvio:hover{
+    background: #2E9CE8;
     color: white;
     border-radius: 10px;
 }
@@ -106,7 +107,7 @@ input[type="number"] {
     margin: 10px;
 }
 .back:hover{
-    background: #65737e;
+    background: #2E9CE8;
     color: white;
     border-radius: 10px;
     

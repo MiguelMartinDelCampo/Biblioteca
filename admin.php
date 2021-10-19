@@ -24,8 +24,8 @@
 
         <header>
         <div class="log">
-                <a href="index.html" id="backmain"><img src="img/logo.png" id="logo"></a>
-                <h4>Bitácora Electrónica</h4>
+                <a href="index.html" id="backmain"><img src="img/favicon.png" id="logo"></a>
+                <h4>Administracion</h4>
             </div>
             <a href=php/logout.php id="admin">Cerrar Sesion</a> 
         </header>
