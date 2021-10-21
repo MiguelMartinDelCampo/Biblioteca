@@ -1,7 +1,8 @@
 <?php
     require 'Classes/PHPExcel.php';
 
-    $conexion = new mysqli("localhost","root","","biblioteca");
+    include "conexion.php";
+    $conexion = conexion();
 
     $fecha1 = $_POST['fecha1'];
     $fecha2 = $_POST['fecha2'];

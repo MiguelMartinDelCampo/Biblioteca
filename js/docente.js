@@ -3,13 +3,13 @@ let name;
 document.addEventListener("DOMContentLoaded",() => {
 $(document).ready(() => {
     $('#grupo').change(() => {
-      if ($(this).val() === "Solo docente") {
+    if ($(this).val() === "Solo docente") {
         $('#numero').prop("disabled", true);
-      } else {
+    } else {
         $('#numero').prop("disabled", false);
-      }
+    }
     })
-  });
+});
 });
 
 const inputSearch = document.querySelector('#busqueda');
@@ -23,9 +23,7 @@ inputSearch.addEventListener('keyup', () => {
             $.post("php/consulta.php", {valorBusqueda, categoria},(mensaje) => {
                 name = mensaje;
                 document.getElementById('resultadoBusqueda').innerHTML = mensaje;
-                let fecha = getDate();
-                let hour = getHour();
-                let fullfecha = fecha + '\t' + hour;   
+                let fullfecha =`${getDate()} \t ${getHour()}`;   
                 document.getElementById('fecha').innerHTML = fullfecha });
             } else {
                 $("#resultadoBusqueda").html('<p>Codigo vacio</p>');
@@ -39,18 +37,24 @@ btnEnvio.addEventListener('click', () => {
     let prestamo = document.getElementById('prestamo');
     let grupo = document.getElementById('grupo');
     let turno = document.getElementById('turno');
-
-    let codigo = document.getElementById('busqueda').value;
+    let codigo = document.getElementById('busqueda').value
     let numero = document.getElementById('numero').value;
-    if(numero == ""){
-            numero = "1";
-        }
-    let service= servicio.options[servicio.selectedIndex].value;
-    let group = grupo.options[grupo.selectedIndex].value;
-    let turn = turno.options[turno.selectedIndex].value;
-    let prest = prestamo.options[prestamo.selectedIndex].value;
-    let categoria = "Docente";
-
+    let fecha = getDate();
+    let fullfecha = `${fecha} \t ${getHour()}`;
+    
+    let data ={
+        servicio: servicio.options[servicio.selectedIndex].value,
+        grupo: grupo.options[grupo.selectedIndex].value,
+        turno: turno.options[turno.selectedIndex].value,
+        prestamo: prestamo.options[prestamo.selectedIndex].value,
+        categoria: "Docente",
+        fullfecha,
+        fecha,
+        numero,
+        name,
+        codigo
+    } 
+    
     if (codigo.length < 7){
         alert('Codigo incompleto')
     }
@@ -59,21 +63,20 @@ btnEnvio.addEventListener('click', () => {
             alert ('Error en el codigo');
         }
             else{
-                let fecha = getDate();
-                let hour = getHour();
-                let fullfecha = `${fecha} \t ${hour}`;
-                let datosingreso = [name, fullfecha, codigo, service, prest, group, numero, turn, categoria, fecha];
-
+                let datosingreso = JSON.stringify(data);
                 $.ajax({
                 type: "POST",
                 url: "php/ingreso.php",
                 data: {datosingreso},
-                success:(response) => {
-                    console.log(response);
+                success:(res) => {
+                    if(res == true){
+                        alert('Registo Guardado con exito', res);
+                        location.href="index.html";
+                    }else{
+                        console.log('Ocurrio un error',res);
+                    }
                 }
         });
-    location.href="index.html";
-    alert("Registro Guardado");
     }
     }
 })

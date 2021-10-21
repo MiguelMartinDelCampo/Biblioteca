@@ -4,7 +4,9 @@
 
 <?php
     $pass=$_POST['pass'];
-    $conexion = new mysqli("localhost","root","","biblioteca");
+    
+    include "conexion.php";
+    $conexion = conexion();
 
     if(!empty ($pass)){
         $sql = "SELECT id, contra FROM admin WHERE id = 1";

@@ -1,5 +1,6 @@
 ﻿<?php
- $conexion = new mysqli("localhost","root","","biblioteca");
+ include "conexion.php";
+ $conexion = conexion();
  $consultaBusqueda = $_POST['valorBusqueda'];
  $categoria = $_POST['categoria'];
 

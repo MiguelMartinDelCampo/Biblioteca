@@ -11,9 +11,7 @@ inputSearch.addEventListener('keyup', () => {
             $.post("php/consulta.php", {valorBusqueda, categoria},(mensaje) => {
                 name = mensaje;
                 document.getElementById('resultadoBusqueda').innerHTML = mensaje;
-                let fecha = getDate();
-                let hour = getHour();
-                let fullfecha = fecha + '\t' + hour;   
+                let fullfecha =`${getDate()} \t ${getHour()}`;   
                 document.getElementById('fecha').innerHTML = fullfecha });
             } else {
                 $("#resultadoBusqueda").html('<p>Codigo vacio</p>');
@@ -28,13 +26,22 @@ btnEnvio.addEventListener('click', () => {
     let grupo = document.getElementById('grupo');
     let turno = document.getElementById('turno');
     let prestamo = document.getElementById('prestamo');
-    let service= servicio.options[servicio.selectedIndex].value;
-    let group = grupo.options[grupo.selectedIndex].value;
-    let turn = turno.options[turno.selectedIndex].value;
-    let prest = prestamo.options[prestamo.selectedIndex].value;
-    let numero = 1;
-    
-    let categoria = "Alumno";
+    let fecha = getDate();
+    let fullfecha = `${fecha} \t ${getHour()}`;
+
+    let data = {
+        servicio: servicio.options[servicio.selectedIndex].value,
+        grupo: grupo.options[grupo.selectedIndex].value,
+        turno: turno.options[turno.selectedIndex].value,
+        prestamo: prestamo.options[prestamo.selectedIndex].value,
+        numero: 1,
+        categoria: "Alumno",
+        codigo,
+        name,
+        fecha,
+        fullfecha
+
+    }
 
     if (codigo.length < 9){
         alert('Codigo incompleto')
@@ -44,22 +51,20 @@ btnEnvio.addEventListener('click', () => {
             alert ('Error en el codigo');
         }
         else{
-            let fecha = getDate();
-            let hour = getHour();
-            let fullfecha = `${fecha} \t ${hour}`;
-    
-            let datosingreso = [name, fullfecha, codigo, service, prest, group, numero, turn, categoria, fecha];
-    
+            let datosingreso = JSON.stringify(data);    
             $.ajax({
                 type: "POST",
                 url: "php/ingreso.php",
                 data: {datosingreso},
-                success: (response) => {
-                    console.log(response);
+                success: (res) => {
+                    if(res == true){
+                        alert('Registo Guardado con exito', res);
+                        location.href="index.html";
+                    }else{
+                        console.log('Ocurrio un error',res);
+                    }
                 }
             });
-            location.href="index.html";
-            alert("Registro Guardado");
         }
     }
 })

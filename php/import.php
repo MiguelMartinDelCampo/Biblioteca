@@ -1,5 +1,7 @@
 ﻿<?php
-$con = new mysqli("localhost", "root", "", "biblioteca");
+include "conexion.php";
+$con = conexion();
+
 $cod = $_POST['codigo'];
 if (isset($cod)) {
     $consulta = mysqli_query($con, "SELECT * FROM registros WHERE Codigo = $cod");

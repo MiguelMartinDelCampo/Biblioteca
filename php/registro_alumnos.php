@@ -1,6 +1,7 @@
  <?php 
     require 'Classes/PHPExcel/IOFactory.php';
-    $conexion = new mysqli("localhost","root","","biblioteca");
+    include "conexion.php";
+    $conexion = conexion();
 
     $name = $_FILES['archivo']['name'];
     $tmp_name = $_FILES['archivo']['tmp_name'];
