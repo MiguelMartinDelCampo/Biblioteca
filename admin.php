@@ -4,7 +4,7 @@
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {} 
     else {
         echo "Inicia Sesion para acceder a este contenido.<br>";
-        header('Location: login.html');
+        header('Location: login.php');
         exit;
     }
  ?>

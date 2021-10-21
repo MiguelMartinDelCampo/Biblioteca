@@ -1,27 +1,7 @@
-<!DOCTYPE HTML5>
-<html>
-    <head>
-        <title>Alumno</title>
-        <meta name="tipo_contenido"  content="text/html;" http-equiv="content-type" charset="utf-8">
-        <link rel="StyleSheet" href="css/header.css">
-        <link rel="StyleSheet" href="css/registro.css">
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
-        
-    </head>
+<?php include "head.php" ?>
 
-    <body data-cat="alumnos" id="body">
-
-        <header>
-            <div class="log">
-                <a href="index.html" id="backmain">
-                    <img src="img/favicon.png" id="logo">
-                    <h4>Alumnos</h4>
-                </a>
-            </div>
-            <a href="login.html" id="admin"><p>Administracion</p></a>   
-        </header>
+    <body data-cat="docentes" id="body">
+    <?php include "header.php" ?>
 
         <article class="all">
             <section class="codigo">
@@ -42,10 +22,10 @@
                 <section>
                     <h4 id="titulo">Servicio</h4>
                     <select id="servicios">
-                        <option value="Catalogo">Catálogo Electrónico</option>
-                        <option value="Computo">Sala de Cómputo</option>
-                        <option value="Estudio">Sala de Estudio</option>
-                        <option value="Lectura">Sala de Lectura</option>
+                            <option value="Estudio">Sala de Estudio</option>
+                            <option value="Computo">Sala de Cómputo</option>
+                            <option value="Lectura">Sala de Lectura</option>
+                            <option value="Catalogo">Catálogo Electrónico</option>
                     </select>
                 </section>
                 <section>
@@ -63,7 +43,8 @@
 
                 <section>
                     <h4 id="titulo">Grupo</h4>
-                    <select id="grupo">
+                    <select id="grupo" name='grupo'>
+                        <option value="Solo docente" selected>Solo docente</option>
                         <option value="1-A">1-A</option>
                         <option value="1-B">1-B</option>
                         <option value="1-C">1-C</option>
@@ -96,6 +77,10 @@
                         <option value="6-E">6-E</option>
                     </select>
                 </section>
+                <section>
+                    <h4 id="titulo">N° Alumnos</h4>
+                    <input type="number" id="numero" name="numero" value="1" disabled="disabled">
+                </section>
 
                 <section>
                     <h4 id="titulo">Turno</h4>
@@ -109,8 +94,9 @@
             <h4 id="test"></h4>
             
             <button id="btnEnvio">Enviar Registro</button>
-            <a href="index.html" class="back">Regresar</a>
+            <a href="index.php" class="back">Regresar</a>
     </body>
-    <script type="text/javascript" src="js/alumno.js"></script>
+
+    <script type="text/javascript" src="js/docente.js"></script>
     <script src="js/jquery.min.js"></script>
 </html>

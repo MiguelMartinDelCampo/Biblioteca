@@ -10,7 +10,7 @@ html, body{
     height: 100%;
 }
 
-#select-self{
+.select-self{
     width: 100%;
     height: 85%;
 
@@ -18,11 +18,12 @@ html, body{
     justify-content: space-around;
     align-items: center;
 }
-h4{
+
+.log h4{
     font-size: 30px;
 }
 
-a{
+.log a, .refDocente, .refAlumno{
     width: 33.33%;
     height: 55%; 
     text-decoration: none;
@@ -65,29 +66,4 @@ a{
 .alumno img{
     width: 70%;
     margin-bottom: 10px;
-}
-
-.pie{
-    width: 75%;
-    height: 10%;
-    margin: auto;
-
-    display: flex;
-    align-items: center;
-
-    border-radius: 10px;
-
-    margin-left: 250px;
-    margin-bottom: 15px;
-}
-
-.pie img{
-    margin-left: 20px;
-    margin-right: 20px;
-    width: 5%;
-}
-
-.pie p{
-    margin-top: 10px;
-    font-size: 10px;
 }
